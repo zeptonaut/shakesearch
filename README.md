@@ -12,6 +12,12 @@ In it's current state, however, the app is in rough shape. The search is
 case sensitive, the results are difficult to read, and the search is limited to
 exact matches.
 
+## Running locally
+```shell
+make
+heroku local
+```
+
 ## Your Mission
 
 Improve the app! Think about the problem from the **user's perspective**
