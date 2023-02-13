@@ -1,3 +1,7 @@
+import { render } from 'react-dom';
+
+import App from './App';
+
 const Controller = {
   search: (ev) => {
     ev.preventDefault();
@@ -22,3 +26,5 @@ const Controller = {
 
 const form = document.getElementById("form");
 form.addEventListener("submit", Controller.search);
+
+render(<App />, document.getElementById('root'));
