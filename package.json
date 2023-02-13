@@ -1,0 +1,23 @@
+{
+  "name": "shakesearch",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "git@github.com:zeptonaut/shakesearch.git",
+  "author": "Charlie Andrews <andrews.charlie@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
