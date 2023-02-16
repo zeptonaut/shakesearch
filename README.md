@@ -23,6 +23,18 @@ heroku local
 yarn start
 ```
 
+## Improvements
+- **Made results linkable.** It seemed like the main use case for an app like
+this is to look up a particular quote in order to share it with others or to
+say "look at how much Shakespeare used this particular phrase". In that spirit,
+not having shareable results was a real drawback. I made the results shareable
+by making the Frontend a React app and having the client-side routing controlled
+by React Router.
+- **Add visual separation between results.** Where one result ended and the next
+began was hard to discern: putting the results in a zebra-striped table helped
+with this.
+
+
 ## Known issues and next steps
 - **You shouldn't have to build the `dist/` folder locally before pushing to `master`.**
 This is currently necessary because Render either expects a Node app (required to 

@@ -10887,7 +10887,7 @@ async function loader({ request  }) {
     const q = url.searchParams.get("q");
     if (!q) return {
         quotes: null,
-        q: ""
+        q: null
     };
     const response = await fetch(`/search?q=${q}`);
     return {
@@ -11028,35 +11028,60 @@ function SearchResults({ query , results  }) {
     ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "max-w-48",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
-            ref: resultsTableRef,
-            className: "table table-zebra table-fixed w-full",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
-                children: results.map((result)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                            className: "whitespace-pre",
-                            children: result
-                        }, void 0, false, {
-                            fileName: "src/components/SearchResults.js",
-                            lineNumber: 23,
-                            columnNumber: 15
-                        }, this)
-                    }, result, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                className: "mb-4",
+                children: [
+                    "Showing ",
+                    results.length,
+                    " results for ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("em", {
+                        children: [
+                            '"',
+                            query,
+                            '"'
+                        ]
+                    }, void 0, true, {
                         fileName: "src/components/SearchResults.js",
-                        lineNumber: 22,
-                        columnNumber: 13
-                    }, this))
+                        lineNumber: 17,
+                        columnNumber: 46
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/SearchResults.js",
+                lineNumber: 16,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
+                ref: resultsTableRef,
+                className: "table table-zebra table-fixed w-full",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                    children: results.map((result)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                className: "whitespace-pre",
+                                children: result
+                            }, void 0, false, {
+                                fileName: "src/components/SearchResults.js",
+                                lineNumber: 26,
+                                columnNumber: 15
+                            }, this)
+                        }, result, false, {
+                            fileName: "src/components/SearchResults.js",
+                            lineNumber: 25,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "src/components/SearchResults.js",
+                    lineNumber: 23,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "src/components/SearchResults.js",
-                lineNumber: 20,
-                columnNumber: 9
+                lineNumber: 19,
+                columnNumber: 7
             }, this)
-        }, void 0, false, {
-            fileName: "src/components/SearchResults.js",
-            lineNumber: 16,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+        ]
+    }, void 0, true, {
         fileName: "src/components/SearchResults.js",
         lineNumber: 15,
         columnNumber: 5

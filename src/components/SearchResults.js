@@ -13,6 +13,9 @@ export default function SearchResults({ query, results }) {
 
   return (
     <div className="max-w-48">
+      <h2 className="mb-4">
+        Showing {results.length} results for <em>"{query}"</em>
+      </h2>
       <table
         ref={resultsTableRef}
         className="table table-zebra table-fixed w-full"

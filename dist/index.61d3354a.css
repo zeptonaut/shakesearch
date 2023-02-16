@@ -1862,6 +1862,18 @@ html {
   margin-bottom: 2rem;
 }
 
+.mb-48 {
+  margin-bottom: 12rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .flex {
   display: flex;
 }

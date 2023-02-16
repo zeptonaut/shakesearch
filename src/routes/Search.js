@@ -7,7 +7,7 @@ export async function loader({ request }) {
   const q = url.searchParams.get("q");
 
   if (!q) {
-    return { quotes: null, q: "" };
+    return { quotes: null, q: null };
   }
   const response = await fetch(`/search?q=${q}`);
   return { quotes: await response.json(), q };
