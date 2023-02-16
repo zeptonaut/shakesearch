@@ -30,7 +30,7 @@ export default function SearchResults({ query, results }) {
           <tbody>
             {results.map((result) => (
               <tr key={result}>
-                <td className="whitespace-pre">{result}</td>
+                <td className="whitespace-pre font-mono text-sm">{result}</td>
               </tr>
             ))}
           </tbody>

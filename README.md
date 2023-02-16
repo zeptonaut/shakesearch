@@ -39,6 +39,7 @@ the results table, which is a sign that more feedback was necessary to indicate
 that a query had been made that returned new results. To remedy this, I added
 an animation when new results were returned. I also indicated the search string
 that was used to give the current results.
+- **Simple 
 
 
 ## Known issues and next steps

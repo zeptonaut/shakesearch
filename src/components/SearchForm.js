@@ -13,13 +13,13 @@ export default function SearchForm({ defaultQuery }) {
         <label className="input-group flex">
           <input
             className="input input-bordered flex-1"
-            placeholder="To be, or not to be"
+            placeholder="e.g. To be, or not to be"
             type="text"
             name="q"
             defaultValue={defaultQuery}
           />
           <button className="btn" type="submit">
-            Find the quote
+            Find text
           </button>
         </label>
       </div>

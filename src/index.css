@@ -4,8 +4,8 @@
 
 mark {
     font-weight: normal;
-    color: hsl(var(--sc));
-    background-color: hsl(var(--s));
+    color: hsl(var(--ac));
+    background-color: hsl(var(--a));
 }
 
 

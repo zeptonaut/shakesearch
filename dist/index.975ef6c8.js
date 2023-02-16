@@ -10876,6 +10876,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "loader", ()=>loader);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _searchExamples = require("/src/components/SearchExamples");
+var _searchExamplesDefault = parcelHelpers.interopDefault(_searchExamples);
 var _searchForm = require("/src/components/SearchForm");
 var _searchFormDefault = parcelHelpers.interopDefault(_searchForm);
 var _searchResults = require("/src/components/SearchResults");
@@ -10900,20 +10902,57 @@ function Search() {
     const { quotes: results , q  } = (0, _reactRouterDom.useLoaderData)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                href: "/",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    className: "text-3xl font-extrabold mb-1 inline-block",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "text-primary",
+                            children: "Shake"
+                        }, void 0, false, {
+                            fileName: "src/routes/Search.js",
+                            lineNumber: 24,
+                            columnNumber: 11
+                        }, this),
+                        "Search"
+                    ]
+                }, void 0, true, {
+                    fileName: "src/routes/Search.js",
+                    lineNumber: 23,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "src/routes/Search.js",
+                lineNumber: 22,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                className: "font-bold text-gray-400 mb-4 font-normal italic",
+                children: "The easiest way to search Shakespeare's texts."
+            }, void 0, false, {
+                fileName: "src/routes/Search.js",
+                lineNumber: 27,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchFormDefault.default), {
                 defaultQuery: q
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 21,
+                lineNumber: 31,
                 columnNumber: 7
             }, this),
-            results && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchResultsDefault.default), {
+            results ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchResultsDefault.default), {
                 query: q,
                 results: results
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 22,
-                columnNumber: 19
+                lineNumber: 33,
+                columnNumber: 9
+            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchExamplesDefault.default), {}, void 0, false, {
+                fileName: "src/routes/Search.js",
+                lineNumber: 35,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true);
@@ -10933,7 +10972,7 @@ $RefreshReg$(_c, "Search");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","/src/components/SearchForm":"gD4KR","/src/components/SearchResults":"9ESL5","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gD4KR":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","/src/components/SearchForm":"gD4KR","/src/components/SearchResults":"9ESL5","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","/src/components/SearchExamples":"fKIey"}],"gD4KR":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$511a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -10955,7 +10994,7 @@ function SearchForm({ defaultQuery  }) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         className: "input input-bordered flex-1",
-                        placeholder: "To be, or not to be",
+                        placeholder: "e.g. To be, or not to be",
                         type: "text",
                         name: "q",
                         defaultValue: defaultQuery
@@ -10967,7 +11006,7 @@ function SearchForm({ defaultQuery  }) {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "btn",
                         type: "submit",
-                        children: "Find the quote"
+                        children: "Find text"
                     }, void 0, false, {
                         fileName: "src/components/SearchForm.js",
                         lineNumber: 21,
@@ -11065,7 +11104,7 @@ function SearchResults({ query , results  }) {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
                         children: results.map((result)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                    className: "whitespace-pre",
+                                    className: "whitespace-pre font-mono text-sm",
                                     children: result
                                 }, void 0, false, {
                                     fileName: "src/components/SearchResults.js",
@@ -35054,7 +35093,75 @@ var nameShape = exports.nameShape = _propTypes2.default.oneOfType([
     })
 ]);
 
-},{"93827f705ab61d88":"21dqq","642d4f31a3a825cc":"7wKI2"}],"lOjBx":[function(require,module,exports) {
+},{"93827f705ab61d88":"21dqq","642d4f31a3a825cc":"7wKI2"}],"fKIey":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0b34 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0b34.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRouterDom = require("react-router-dom");
+const EXAMPLES = [
+    "To be, or not to be",
+    "Hamlet",
+    "scoundrel"
+];
+function SearchExamples() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "divider text-gray-400 uppercase tracking-wide font-bold",
+                children: "Try a few"
+            }, void 0, false, {
+                fileName: "src/components/SearchExamples.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex space-x-2",
+                children: EXAMPLES.map((example)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "?" + new URLSearchParams({
+                            q: example
+                        }).toString(),
+                        className: "btn btn-accent normal-case",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("em", {
+                            children: example
+                        }, void 0, false, {
+                            fileName: "src/components/SearchExamples.js",
+                            lineNumber: 17,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/components/SearchExamples.js",
+                        lineNumber: 13,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "src/components/SearchExamples.js",
+                lineNumber: 11,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/SearchExamples.js",
+        lineNumber: 7,
+        columnNumber: 5
+    }, this);
+}
+exports.default = SearchExamples;
+_c = SearchExamples;
+var _c;
+$RefreshReg$(_c, "SearchExamples");
+
+  $parcel$ReactRefreshHelpers$0b34.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("8d966568201b5213");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
