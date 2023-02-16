@@ -1,20 +1,24 @@
-import { useState } from "react";
+import Search, { loader as searchLoader } from "/src/routes/Search";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import SearchForm from "/src/components/SearchForm.js";
-import SearchResults from "/src/components/SearchResults";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Search />,
+    errorElement: <Search />,
+    loader: searchLoader,
+  },
+  {
+    path: "/:query",
+    element: <Search />,
+    errorElement: <Search />,
+  },
+]);
 
 const App = () => {
-  const [results, setResults] = useState();
-
-  const onQuerySubmit = async (newQuery) => {
-    const response = await fetch(`/search?q=${newQuery}`);
-    setResults(await response.json());
-  };
-
   return (
     <div className="p-8 max-w-3xl mx-auto">
-      <SearchForm onSubmit={onQuerySubmit} />
-      {results && <SearchResults results={results} />}
+      <RouterProvider router={router} />
     </div>
   );
 };
