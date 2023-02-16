@@ -19,7 +19,7 @@ export default function Search() {
   return (
     <>
       <SearchForm defaultQuery={q} />
-      {results !== null && <SearchResults query={q} results={results} />}
+      {results && <SearchResults query={q} results={results} />}
     </>
   );
 }

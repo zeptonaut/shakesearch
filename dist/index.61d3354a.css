@@ -1858,20 +1858,12 @@ html {
   margin-right: auto;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
-.mb-48 {
-  margin-bottom: 12rem;
-}
-
-.mb-16 {
-  margin-bottom: 4rem;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .flex {
@@ -1923,6 +1915,22 @@ mark {
   color: hsl(var(--sc));
   background-color: hsl(var(--s));
   font-weight: normal;
+}
+
+@keyframes slidein {
+  from {
+    opacity: .5;
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.results-enter, .results-appear {
+  animation: .3s cubic-bezier(.33, 1, .68, 1) slidein;
 }
 
 /*# sourceMappingURL=index.61d3354a.css.map */

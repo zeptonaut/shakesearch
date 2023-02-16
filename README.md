@@ -33,6 +33,12 @@ by React Router.
 - **Add visual separation between results.** Where one result ended and the next
 began was hard to discern: putting the results in a zebra-striped table helped
 with this.
+- **Add visual feedback that a search occurred.** I noticed myself constantly
+wondering "did that search actually happen?" and looking for visual feedback in
+the results table, which is a sign that more feedback was necessary to indicate
+that a query had been made that returned new results. To remedy this, I added
+an animation when new results were returned. I also indicated the search string
+that was used to give the current results.
 
 
 ## Known issues and next steps
@@ -46,6 +52,7 @@ redirect rules ([as described here](https://render.com/docs/deploy-create-react-
 to do some sort of routing for the static site where calls to `/api` are redirected to the API server.
 My goal here was "get this working on Render" and having a slightly clunky
 build process to do so seemed OK for now.
+- **Add pagination**: 
 
 ### Deploying
 New deploys happen automatically upon new commits to the `master` branch. 
