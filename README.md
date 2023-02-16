@@ -14,9 +14,31 @@ exact matches.
 
 ## Running locally
 ```shell
-make
+# Build the go application
+yarn build
+# Start the API server
 heroku local
+
+# In another terminal, start the frontend
+yarn start
 ```
+
+## Known issues and next steps
+- **You shouldn't have to build the `dist/` folder locally before pushing to `master`.**
+This is currently necessary because Render either expects a Node app (required to 
+build frontend) or a Go app (required to build backend), but has no default 
+image that can build both as far as I can tell. This could be solved by creating
+a Render blueprint file with two web processes: a static site (that can build
+the React frontend) and a Go app (that can build the backend). Then you can use
+redirect rules ([as described here](https://render.com/docs/deploy-create-react-app#using-client-side-routing))
+to do some sort of routing for the static site where calls to `/api` are redirected to the API server.
+My goal here was "get this working on Render" and having a slightly clunky
+build process to do so seemed OK for now.
+
+### Deploying
+New deploys happen automatically upon new commits to the `master` branch. 
+Before committing, you _must_ rebuild the frontend `dist/` folder with `yarn build`.
+(See "Known issues and next steps" for a suggested fix to this awkward workflow.)
 
 ## Your Mission
 
