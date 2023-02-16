@@ -12,9 +12,9 @@ export default function SearchExamples() {
         {EXAMPLES.map((example) => (
           <Link
             to={"?" + new URLSearchParams({ q: example }).toString()}
-            className="btn btn-accent normal-case"
+            className="btn btn-outline normal-case btn-secondary"
           >
-            <em>{example}</em>
+            {example}
           </Link>
         ))}
       </div>

@@ -11100,7 +11100,7 @@ function SearchResults({ query , results  }) {
                 transitionLeave: false,
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
                     ref: resultsTableRef,
-                    className: "table table-zebra table-fixed w-full",
+                    className: "table table-zebra table-fixed w-full shadow-lg border border-gray-100 br-4",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
                         children: results.map((result)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -35126,14 +35126,8 @@ function SearchExamples() {
                         to: "?" + new URLSearchParams({
                             q: example
                         }).toString(),
-                        className: "btn btn-accent normal-case",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("em", {
-                            children: example
-                        }, void 0, false, {
-                            fileName: "src/components/SearchExamples.js",
-                            lineNumber: 17,
-                            columnNumber: 13
-                        }, this)
+                        className: "btn btn-outline normal-case btn-secondary",
+                        children: example
                     }, void 0, false, {
                         fileName: "src/components/SearchExamples.js",
                         lineNumber: 13,

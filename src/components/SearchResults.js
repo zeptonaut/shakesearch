@@ -25,7 +25,7 @@ export default function SearchResults({ query, results }) {
       >
         <table
           ref={resultsTableRef}
-          className="table table-zebra table-fixed w-full"
+          className="table table-zebra table-fixed w-full shadow-lg border border-gray-100 br-4"
         >
           <tbody>
             {results.map((result) => (
