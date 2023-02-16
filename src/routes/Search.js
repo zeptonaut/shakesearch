@@ -5,6 +5,10 @@ import { useLoaderData } from "react-router-dom";
 export async function loader({ request }) {
   const url = new URL(request.url);
   const q = url.searchParams.get("q");
+
+  if (!q) {
+    return { quotes: null, q: "" };
+  }
   const response = await fetch(`/search?q=${q}`);
   return { quotes: await response.json(), q };
 }
@@ -15,7 +19,7 @@ export default function Search() {
   return (
     <>
       <SearchForm defaultQuery={q} />
-      {results && <SearchResults query={q} results={results} />}
+      {results !== null && <SearchResults query={q} results={results} />}
     </>
   );
 }
