@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+mark {
+    font-weight: normal;
+    color: hsl(var(--sc));
+    background-color: hsl(var(--s));
+}

@@ -15,7 +15,7 @@ export default function Search() {
   return (
     <>
       <SearchForm defaultQuery={q} />
-      {results && <SearchResults results={results} />}
+      {results && <SearchResults query={q} results={results} />}
     </>
   );
 }
