@@ -11,6 +11,18 @@ import (
 	"os"
 )
 
+// Clamp restricts n to be between min and max, returning min if n
+// is less than min and max if n is more than min.
+func Clamp(n, min, max int) int {
+	if n < min {
+		return min
+	}
+	if n > max {
+		return max
+	}
+	return n
+}
+
 func main() {
 	searcher := Searcher{}
 	err := searcher.Load("completeworks.txt")
@@ -76,7 +88,9 @@ func (s *Searcher) Search(query string) []string {
 	idxs := s.SuffixArray.Lookup([]byte(query), -1)
 	results := []string{}
 	for _, idx := range idxs {
-		results = append(results, s.CompleteWorks[idx-250:idx+250])
+		startIdx := Clamp(idx - 250, 0, len(s.CompleteWorks))
+		endIdx := Clamp(idx + 250, 0, len(s.CompleteWorks))
+		results = append(results, s.CompleteWorks[startIdx:endIdx])
 	}
 	return results
 }

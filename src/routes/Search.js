@@ -1,21 +1,33 @@
+import ErrorMessage from "/src/components/ErrorMessage";
 import SearchExamples from "/src/components/SearchExamples";
 import SearchForm from "/src/components/SearchForm";
 import SearchResults from "/src/components/SearchResults";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 export async function loader({ request }) {
-  const url = new URL(request.url);
-  const q = url.searchParams.get("q");
+  try {
+    const url = new URL(request.url);
+    const q = url.searchParams.get("q");
+    const activePage = url.searchParams.get("page") || 1;
 
-  if (!q) {
-    return { quotes: null, q: null };
+    if (!q) {
+      return {};
+    }
+    const response = await fetch(`/search?q=${q}`);
+    return {
+      quotes: await response.json(),
+      q,
+      activePage: parseInt(activePage),
+    };
+  } catch (err) {
+    return {
+      error: "Sorry: we encountered a server error. Please try again later.",
+    };
   }
-  const response = await fetch(`/search?q=${q}`);
-  return { quotes: await response.json(), q };
 }
 
 export default function Search() {
-  const { quotes: results, q } = useLoaderData();
+  const { quotes: results, q, activePage, error } = useLoaderData();
 
   return (
     <>
@@ -30,7 +42,9 @@ export default function Search() {
 
       <SearchForm defaultQuery={q} />
       {results ? (
-        <SearchResults query={q} results={results} />
+        <SearchResults query={q} results={results} activePage={activePage} />
+      ) : error ? (
+        <ErrorMessage message={error} />
       ) : (
         <SearchExamples />
       )}

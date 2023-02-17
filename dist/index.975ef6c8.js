@@ -10876,6 +10876,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "loader", ()=>loader);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _errorMessage = require("/src/components/ErrorMessage");
+var _errorMessageDefault = parcelHelpers.interopDefault(_errorMessage);
 var _searchExamples = require("/src/components/SearchExamples");
 var _searchExamplesDefault = parcelHelpers.interopDefault(_searchExamples);
 var _searchForm = require("/src/components/SearchForm");
@@ -10885,21 +10887,26 @@ var _searchResultsDefault = parcelHelpers.interopDefault(_searchResults);
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 async function loader({ request  }) {
-    const url = new URL(request.url);
-    const q = url.searchParams.get("q");
-    if (!q) return {
-        quotes: null,
-        q: null
-    };
-    const response = await fetch(`/search?q=${q}`);
-    return {
-        quotes: await response.json(),
-        q
-    };
+    try {
+        const url = new URL(request.url);
+        const q = url.searchParams.get("q");
+        const activePage = url.searchParams.get("page") || 1;
+        if (!q) return {};
+        const response = await fetch(`/search?q=${q}`);
+        return {
+            quotes: await response.json(),
+            q,
+            activePage: parseInt(activePage)
+        };
+    } catch (err) {
+        return {
+            error: "Sorry: we encountered a server error. Please try again later."
+        };
+    }
 }
 function Search() {
     _s();
-    const { quotes: results , q  } = (0, _reactRouterDom.useLoaderData)();
+    const { quotes: results , q , activePage , error  } = (0, _reactRouterDom.useLoaderData)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -10912,19 +10919,19 @@ function Search() {
                             children: "Shake"
                         }, void 0, false, {
                             fileName: "src/routes/Search.js",
-                            lineNumber: 24,
+                            lineNumber: 36,
                             columnNumber: 11
                         }, this),
                         "Search"
                     ]
                 }, void 0, true, {
                     fileName: "src/routes/Search.js",
-                    lineNumber: 23,
+                    lineNumber: 35,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 22,
+                lineNumber: 34,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -10932,33 +10939,40 @@ function Search() {
                 children: "The easiest way to search Shakespeare's texts."
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 27,
+                lineNumber: 39,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchFormDefault.default), {
                 defaultQuery: q
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 31,
+                lineNumber: 43,
                 columnNumber: 7
             }, this),
             results ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchResultsDefault.default), {
                 query: q,
-                results: results
+                results: results,
+                activePage: activePage
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 33,
+                lineNumber: 45,
+                columnNumber: 9
+            }, this) : error ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorMessageDefault.default), {
+                message: error
+            }, void 0, false, {
+                fileName: "src/routes/Search.js",
+                lineNumber: 47,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchExamplesDefault.default), {}, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 35,
+                lineNumber: 49,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true);
 }
 exports.default = Search;
-_s(Search, "5sCMWoy6xr9d3cHKDZujba+EBsw=", false, function() {
+_s(Search, "BiNuZq78gQ7BSTIfVqAK7ugTclw=", false, function() {
     return [
         (0, _reactRouterDom.useLoaderData)
     ];
@@ -10972,7 +10986,7 @@ $RefreshReg$(_c, "Search");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","/src/components/SearchForm":"gD4KR","/src/components/SearchResults":"9ESL5","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","/src/components/SearchExamples":"fKIey"}],"gD4KR":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","/src/components/SearchForm":"gD4KR","/src/components/SearchResults":"9ESL5","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","/src/components/SearchExamples":"fKIey","/src/components/ErrorMessage":"k2mb8"}],"gD4KR":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$511a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -11049,12 +11063,26 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _pagination = require("/src/components/Pagination");
+var _paginationDefault = parcelHelpers.interopDefault(_pagination);
 var _markJs = require("mark.js/dist/mark.js");
 var _markJsDefault = parcelHelpers.interopDefault(_markJs);
 var _react = require("react");
 var _reactTransitionGroup = require("react-transition-group");
 var _s = $RefreshSig$();
-function SearchResults({ query , results  }) {
+const RESULTS_PER_PAGE = 20;
+const clamp = (num, min, max)=>Math.min(Math.max(num, min), max);
+const getFilteredResults = (results, activePage)=>{
+    const startIndex = clamp((activePage - 1) * RESULTS_PER_PAGE, 0, results.length);
+    const endIndex = clamp(activePage * RESULTS_PER_PAGE, 0, results.length);
+    return {
+        startIndex,
+        endIndex,
+        data: results.slice(startIndex, endIndex),
+        totalPages: Math.ceil(results.length * 1.0 / RESULTS_PER_PAGE)
+    };
+};
+function SearchResults({ query , results , activePage  }) {
     _s();
     const resultsTableRef = (0, _react.useRef)();
     (0, _react.useLayoutEffect)(()=>{
@@ -11067,31 +11095,41 @@ function SearchResults({ query , results  }) {
         query,
         results
     ]);
+    const filteredResults = getFilteredResults(results, activePage);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         id: "results",
         className: "max-w-48",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 className: "mb-4",
-                children: [
-                    "Showing ",
-                    results.length,
-                    " results for ",
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("em", {
-                        children: [
-                            '"',
-                            query,
-                            '"'
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/SearchResults.js",
-                        lineNumber: 19,
-                        columnNumber: 46
-                    }, this)
-                ]
-            }, void 0, true, {
+                children: results.length > 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                    children: [
+                        "Showing results ",
+                        filteredResults.startIndex + 1,
+                        "-",
+                        filteredResults.endIndex,
+                        " of ",
+                        results.length,
+                        " for",
+                        " ",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("em", {
+                            children: [
+                                '"',
+                                query,
+                                '"'
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/SearchResults.js",
+                            lineNumber: 45,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                    children: "No results found."
+                }, void 0, false)
+            }, void 0, false, {
                 fileName: "src/components/SearchResults.js",
-                lineNumber: 18,
+                lineNumber: 40,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactTransitionGroup.CSSTransitionGroup), {
@@ -11102,39 +11140,48 @@ function SearchResults({ query , results  }) {
                     ref: resultsTableRef,
                     className: "table table-zebra table-fixed w-full shadow-lg border border-gray-100 br-4",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
-                        children: results.map((result)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                        children: filteredResults.data.map((result)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                     className: "whitespace-pre font-mono text-sm",
                                     children: result
                                 }, void 0, false, {
                                     fileName: "src/components/SearchResults.js",
-                                    lineNumber: 33,
+                                    lineNumber: 63,
                                     columnNumber: 17
                                 }, this)
                             }, result, false, {
                                 fileName: "src/components/SearchResults.js",
-                                lineNumber: 32,
+                                lineNumber: 62,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "src/components/SearchResults.js",
-                        lineNumber: 30,
+                        lineNumber: 60,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/SearchResults.js",
-                    lineNumber: 26,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/SearchResults.js",
-                lineNumber: 21,
+                lineNumber: 51,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _paginationDefault.default), {
+                query: query,
+                totalPages: filteredResults.totalPages,
+                activePage: activePage
+            }, void 0, false, {
+                fileName: "src/components/SearchResults.js",
+                lineNumber: 69,
                 columnNumber: 7
             }, this)
         ]
     }, query, true, {
         fileName: "src/components/SearchResults.js",
-        lineNumber: 17,
+        lineNumber: 39,
         columnNumber: 5
     }, this);
 }
@@ -11149,7 +11196,7 @@ $RefreshReg$(_c, "SearchResults");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","mark.js/dist/mark.js":"D5Quq","react-transition-group":"cthvx"}],"D5Quq":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","mark.js/dist/mark.js":"D5Quq","react-transition-group":"cthvx","/src/components/Pagination":"dpcro"}],"D5Quq":[function(require,module,exports) {
 /*!***************************************************
 * mark.js v8.11.1
 * https://markjs.io/
@@ -35093,7 +35140,69 @@ var nameShape = exports.nameShape = _propTypes2.default.oneOfType([
     })
 ]);
 
-},{"93827f705ab61d88":"21dqq","642d4f31a3a825cc":"7wKI2"}],"fKIey":[function(require,module,exports) {
+},{"93827f705ab61d88":"21dqq","642d4f31a3a825cc":"7wKI2"}],"dpcro":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0f74 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0f74.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function Pagination({ totalPages , query , activePage  }) {
+    _s();
+    const [searchParams, setSearchParams] = (0, _reactRouterDom.useSearchParams)();
+    searchParams.set("page", activePage - 1);
+    const prevSearchParams = `?${searchParams}`;
+    searchParams.set("page", activePage + 1);
+    const nextSearchParams = `?${searchParams}`;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "flex mt-4",
+        children: [
+            activePage > 1 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                to: prevSearchParams,
+                className: "btn btn-outline",
+                children: "\xab Previous page"
+            }, void 0, false, {
+                fileName: "src/components/Pagination.js",
+                lineNumber: 14,
+                columnNumber: 9
+            }, this),
+            activePage < totalPages && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                to: nextSearchParams,
+                className: "btn btn-outline ml-auto",
+                children: "Next page \xbb"
+            }, void 0, false, {
+                fileName: "src/components/Pagination.js",
+                lineNumber: 20,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Pagination.js",
+        lineNumber: 12,
+        columnNumber: 5
+    }, this);
+}
+exports.default = Pagination;
+_s(Pagination, "/eCs5CB4FLGAVLeprHBYLwBGf/Q=", false, function() {
+    return [
+        (0, _reactRouterDom.useSearchParams)
+    ];
+});
+_c = Pagination;
+var _c;
+$RefreshReg$(_c, "Pagination");
+
+  $parcel$ReactRefreshHelpers$0f74.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"fKIey":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0b34 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35155,7 +35264,71 @@ $RefreshReg$(_c, "SearchExamples");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
+},{"react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"k2mb8":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$83b0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$83b0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+function ErrorMessage({ message  }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "alert alert-error shadow-lg",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    className: "stroke-current flex-shrink-0 h-6 w-6",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                        strokeLinecap: "round",
+                        strokeLinejoin: "round",
+                        strokeWidth: "2",
+                        d: "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    }, void 0, false, {
+                        fileName: "src/components/ErrorMessage.js",
+                        lineNumber: 11,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/components/ErrorMessage.js",
+                    lineNumber: 5,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                    children: message
+                }, void 0, false, {
+                    fileName: "src/components/ErrorMessage.js",
+                    lineNumber: 18,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/ErrorMessage.js",
+            lineNumber: 4,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/ErrorMessage.js",
+        lineNumber: 3,
+        columnNumber: 5
+    }, this);
+}
+exports.default = ErrorMessage;
+_c = ErrorMessage;
+var _c;
+$RefreshReg$(_c, "ErrorMessage");
+
+  $parcel$ReactRefreshHelpers$83b0.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("8d966568201b5213");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
