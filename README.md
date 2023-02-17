@@ -140,26 +140,23 @@ resource-intensive process, it's important to use aggressive cache timelines
 on the page results on the prerender server. In the past, I've used An AWS Lambda
 function to handle the routing to the appropriate server.
 
-## Architectural suggestions
+## Architectural alternatives
 If I were doing this "for real", I'd probably _not_ make it a SPA and instead opt
 to make it a regular ol' server application (e.g. Rails + Hotwire, Django, a 
 similar golang framework) with any necessary interactivity sprinkled in by a
 lightweight framework like SolidJS, Svelte, or Preact. 
 
-This app definitely doesn't feel interactive enough to justify the generally slow
-site speeds and architectural complexity of a full React application. For example,
-getting the prerender server up and running to get SEO working on this would be
-complex.
+This app definitely falls below my bar for "how interactive does this need
+to be before React feels worthwhile?". SPAs have a real cost in complexity - for
+example, getting the prerender server up and running to get SEO working on this would be
+complex. Accessibility tends to be much harder to get right than a regular HTML
+application. Lastly, they tend to be significantly slower due to the required JS
+bundle.
 
-I didn't take this route because I definitely know React better than those
+With that being said, I'm a lot more familiar with React than those alternatives.
+Given that this was for an interview, React seemed the safer choice.
 
 ## Deploying
 New deploys happen automatically upon new commits to the `master` branch. 
 Before committing, you _must_ rebuild the frontend `dist/` folder with `yarn build`.
 (See "Known issues and next steps" for a suggested fix to this awkward workflow.)
-
-## Submission
-
-1. Fork this repository and send us a link to your fork after pushing your changes.
-2. Render (render.com) hosting, the application deploys cleanly from a public url.
-3. In your submission, share with us what changes you made and how you would prioritize changes if you had more time.
