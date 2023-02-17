@@ -73,6 +73,7 @@ to find the matches and then checking that the first character before the beginn
 of the match and the last character after the end of the match aren't "word"
 characters, using a similar technique that Regexp word boundaries use
 (see documentation [here](https://www.rexegg.com/regex-boundaries.html#:~:text=The%20word%20boundary%20%5Cb%20matches,string%20or%20a%20space%20character)).
+- **Scroll should reset when changing pages.**
 - **You shouldn't have to build the `dist/` folder locally before pushing to `master`.**
 This is currently necessary because Render either expects a Node app (required to 
 build frontend) or a Go app (required to build backend), but has no default 
