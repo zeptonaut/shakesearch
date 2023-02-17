@@ -7,6 +7,10 @@ const RESULTS_PER_PAGE = 20;
 
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
+/**
+ * getFilteredResults takes the entire result set and returns an array
+ * containingjust just the active page's worth of results.
+ */
 const getFilteredResults = (results, activePage) => {
   const startIndex = clamp(
     (activePage - 1) * RESULTS_PER_PAGE,

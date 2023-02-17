@@ -10878,6 +10878,8 @@ parcelHelpers.export(exports, "loader", ()=>loader);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _errorMessage = require("/src/components/ErrorMessage");
 var _errorMessageDefault = parcelHelpers.interopDefault(_errorMessage);
+var _scrollToTop = require("/src/components/ScrollToTop");
+var _scrollToTopDefault = parcelHelpers.interopDefault(_scrollToTop);
 var _searchExamples = require("/src/components/SearchExamples");
 var _searchExamplesDefault = parcelHelpers.interopDefault(_searchExamples);
 var _searchForm = require("/src/components/SearchForm");
@@ -10909,6 +10911,11 @@ function Search() {
     const { quotes: results , q , activePage , error  } = (0, _reactRouterDom.useLoaderData)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _scrollToTopDefault.default), {}, void 0, false, {
+                fileName: "src/routes/Search.js",
+                lineNumber: 35,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                 href: "/",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
@@ -10919,19 +10926,19 @@ function Search() {
                             children: "Shake"
                         }, void 0, false, {
                             fileName: "src/routes/Search.js",
-                            lineNumber: 36,
+                            lineNumber: 38,
                             columnNumber: 11
                         }, this),
                         "Search"
                     ]
                 }, void 0, true, {
                     fileName: "src/routes/Search.js",
-                    lineNumber: 35,
+                    lineNumber: 37,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 34,
+                lineNumber: 36,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -10939,14 +10946,14 @@ function Search() {
                 children: "The easiest way to search Shakespeare's texts."
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 39,
+                lineNumber: 41,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchFormDefault.default), {
                 defaultQuery: q
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 43,
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             results ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchResultsDefault.default), {
@@ -10955,17 +10962,17 @@ function Search() {
                 activePage: activePage
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 45,
+                lineNumber: 47,
                 columnNumber: 9
             }, this) : error ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorMessageDefault.default), {
                 message: error
             }, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 47,
+                lineNumber: 49,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchExamplesDefault.default), {}, void 0, false, {
                 fileName: "src/routes/Search.js",
-                lineNumber: 49,
+                lineNumber: 51,
                 columnNumber: 9
             }, this)
         ]
@@ -10986,7 +10993,7 @@ $RefreshReg$(_c, "Search");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","/src/components/SearchForm":"gD4KR","/src/components/SearchResults":"9ESL5","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","/src/components/SearchExamples":"fKIey","/src/components/ErrorMessage":"k2mb8"}],"gD4KR":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","/src/components/SearchForm":"gD4KR","/src/components/SearchResults":"9ESL5","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","/src/components/SearchExamples":"fKIey","/src/components/ErrorMessage":"k2mb8","/src/components/ScrollToTop":"8xC27"}],"gD4KR":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$511a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35328,7 +35335,48 @@ $RefreshReg$(_c, "ErrorMessage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8xC27":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$53c4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$53c4.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+function ScrollToTop() {
+    _s();
+    const { pathname  } = (0, _reactRouterDom.useLocation)();
+    const [searchParams] = (0, _reactRouterDom.useSearchParams)();
+    (0, _react.useEffect)(()=>{
+        const body = document.querySelector("#root");
+        body.scrollIntoView();
+    }, [
+        pathname,
+        searchParams
+    ]);
+    return null;
+}
+exports.default = ScrollToTop;
+_s(ScrollToTop, "SCREJ8vmEm9xkawarNR4I5BmS4E=", false, function() {
+    return [
+        (0, _reactRouterDom.useLocation),
+        (0, _reactRouterDom.useSearchParams)
+    ];
+});
+_c = ScrollToTop;
+var _c;
+$RefreshReg$(_c, "ScrollToTop");
+
+  $parcel$ReactRefreshHelpers$53c4.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("8d966568201b5213");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
